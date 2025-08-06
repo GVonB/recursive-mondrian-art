@@ -17,9 +17,9 @@ public class Client {
     // TODO: Implement fill below (this solution can be iterative)
     public static void fill (Color[][] pixels, int x1, int x2, int y1, int y2) {
         // x1/y1 - Inclusive    x2/y2 - Exlcusive
-        for (int row = x1 + 1; row < x2 - 1; row++) {
-            for (int col = y1 + 1; col < y2 - 1; col++) {
-                pixels[row][col] = Color.WHITE;
+        for (int y = y1 + 1; y < y2 - 1; y++) {
+            for (int x = x1 + 1; x < x2 - 1; x++) {
+                pixels[y][x] = Color.WHITE;
             }
         }
     }
