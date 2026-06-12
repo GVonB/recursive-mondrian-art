@@ -1,26 +1,35 @@
-import java.awt.Color;
+import java.awt.*;
+import java.util.*;
 
 public class Client {
-    public static void main(String[] args) {
-        // 1. Create a new picture with size 400 x 400
-        Picture p = new Picture(400, 400);
-        // 2. Get the pixels out of the image
-        Color[][] pixels = p.getPixels();
-        // 3. Call fill, providing a specific region
-        fill(pixels, 0, p.width(), 0, p.height());
-        // 4. Set the pixels of the image
-        p.setPixels(pixels);
-        // 5. Save the image to display it
-        p.save("fillregion.jpg");
-    }
+    public static void main(String[] args) throws Exception {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Welcome to the CSE 123 Mondrian Art Generator!");
 
-    // TODO: Implement fill below (this solution can be iterative)
-    public static void fill (Color[][] pixels, int x1, int x2, int y1, int y2) {
-        // x1/y1 - Inclusive    x2/y2 - Exlcusive
-        for (int y = y1 + 1; y < y2 - 1; y++) {
-            for (int x = x1 + 1; x < x2 - 1; x++) {
-                pixels[y][x] = Color.WHITE;
-            }
+        int choice = 0;
+        while (choice != 1 && choice != 2) {
+            System.out.print("Enter 1 for a basic Mondrian or 2 for a complex Mondrian: ");
+            choice = console.nextInt();
         }
+        System.out.print("Enter image width (>= 300px): ");
+        int width = console.nextInt();
+        System.out.print("Enter image height (>= 300px): ");
+        int height = console.nextInt();
+
+        Mondrian mond = new Mondrian();
+        Picture pic = new Picture(width, height);
+        Color[][] pixels = pic.getPixels();
+
+        if (choice == 1) {
+            mond.paintBasicMondrian(pixels);
+        } else {    // choice == 2
+            mond.paintComplexMondrian(pixels);
+        }
+        
+        pic.setPixels(pixels);
+        pic.save(choice == 1 ? "basic.png" : "extension.png");
+        pic.show();
+        System.out.println("Enjoy your artwork!");
     }
 }
+
