@@ -10,4 +10,4 @@ The canvas is recursively split into smaller rectangles, vertically or horizonta
 ## Requirements
 Java 11+
 
-*If you're currently enrolled in a course using this assignment, please don't copy this work.*
+> If you're currently enrolled in a course using this assignment, please don't copy this work.
