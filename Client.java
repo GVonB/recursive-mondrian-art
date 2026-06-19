@@ -30,6 +30,7 @@ public class Client {
         pic.save(choice == 1 ? "basic.png" : "extension.png");
         pic.show();
         System.out.println("Enjoy your artwork!");
+        console.close();
     }
 }
 

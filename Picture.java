@@ -26,6 +26,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URI;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -156,7 +157,7 @@ public final class Picture implements ActionListener {
 
                 // or URL from web
                 if (url == null) {
-                    url = new URL(name);
+                    url = URI.create(name).toURL();
                 }
 
                 image = ImageIO.read(url);
